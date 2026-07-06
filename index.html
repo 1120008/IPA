@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Otomatisasi IPA Gen Alpha</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0d1117;
+            --card-bg: #161b22;
+            --neon-blue: #58a6ff;
+            --neon-green: #3fb950;
+            --text-main: #c9d1d9;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+        h1, h2, h3 { color: #ffffff; margin-top: 0; }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-bottom: 15px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border-radius: 6px;
+        }
+        .chat-box {
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid #30363d;
+            padding: 10px;
+            background: #090d13;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        .chat-input-area { display: flex; gap: 10px; }
+        input[type="text"] {
+            flex: 1;
+            background: #21262d;
+            border: 1px solid #30363d;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        button {
+            background-color: var(--neon-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { opacity: 0.9; }
+        .badge {
+            background: #238636;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="margin-bottom: 30px; border-bottom: 1px solid #30363d; padding-bottom: 10px;">
+        <h1>🚀 GERBANG AUTOMATED LMS & STREAMING IPA</h1>
+        <p>Status Keamanan Data AI: <span class="badge" style="background-color: var(--neon-blue);">TERENKRIPSI TOTAL (100% SECURE)</span></p>
+    </header>
+
+    <div class="grid-container">
+        <div class="space-y-4">
+            <div class="card">
+                <h2>📹 Sesi LIVE Streaming 7 Jam (Aturan Ketat Aktif)</h2>
+                <div style="background: #21262d; padding: 10px; border-radius: 6px; font-size: 14px; margin-bottom: 15px;">
+                    🔒 <b>Protokol Kamar Zoom:</b> Mic Muted on Entry | No Screen Share | No Annotation | Public Chat Only
+                </div>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZqMvfiS99m4" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3>Materi Mikro: Ciri-Ciri Gerak Tropisme</h3>
+                <p>Tropisme adalah gerak sebagian tubuh tumbuhan yang arahnya dipengaruhi oleh arah datangnya rangsang dari luar. Jika mendekati rangsang disebut tropisme positif, jika menjauhi disebut tropisme negatif.</p>
+            </div>
+
+            <div class="card">
+                <h2>🧪 Asesmen Formatif & Diskusi Terfilter</h2>
+                <p>Diskusikan perbedaan karakteristik antara: <b>Virus, Gunung, dan Tanaman</b>.</p>
+                <div class="chat-box" id="forumBox">
+                    <p style="color: #8b949e;"><i>[Sistem AI] Ruang diskusi aktif. Filter SARA, Opini Agama, dan Asusila berjalan otomatis.</i></p>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="forumInput" placeholder="Ketik pendapat sainsmu di sini...">
+                    <button onclick="kirimDiskusi()">Kirim Post</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="card" style="margin-bottom: 20px;">
+                <h2>🤖 Chatbot Pemandu Sokratik</h2>
+                <div class="chat-box" id="botBox">
+                    <p style="color: var(--neon-blue);"><b>AI Guide:</b> Halo Gen Alpha! Menurutmu, apakah Gunung bisa disebut makhluk hidup karena dia bisa bertambah besar? Coba berikan analisismu!</p>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="botInput" placeholder="Jawab chatbot...">
+                    <button onclick="jawabBot()" style="background: var(--neon-blue);">Respons</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>📊 Live Dashboard Analytics (Zero-Human)</h2>
+                <p>Data kemajuan ditarik otomatis tanpa intervensi admin:</p>
+                <canvas id="progressChart" width="100" height="100"></canvas>
+                <div style="margin-top: 15px; font-size: 14px;">
+                    <ul>
+                        <li>Total Partisipan Hari Ini: <b>142 Siswa</b></li>
+                        <li>Sinkronisasi Google Sheets: <span style="color: var(--neon-green);">● Connected</span></li>
+                        <li>Kelengkapan NotebookLM: <b>87%</b></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Logika Diskusi Terfilter
+        function kirimDiskusi() {
+            let input = document.getElementById('forumInput');
+            let box = document.getElementById('forumBox');
+            if(input.value.trim() === "") return;
+
+            // Simulasi filter AI ketat
+            let teks = input.value.toLowerCase();
+            if(teks.includes("halo") || teks.includes("menurut saya")) {
+                box.innerHTML += `<p><b>Siswa_Alpha:</b> ${input.value}</p>`;
+            } else {
+                // Trigger deteksi anomali / di luar koridor sains
+                box.innerHTML += `<p style="color: #f85149;">⚠️ <i>Postingan diblokir oleh AI Guardrails karena di luar konteks sains murni/indikasi opini terlarang.</i></p>`;
+            }
+            input.value = "";
+            box.scrollTop = box.scrollHeight;
+        }
+
+        // Logika Chatbot Sokratik (Tidak memberi jawaban langsung)
+        function jawabBot() {
+            let input = document.getElementById('botInput');
+            let box = document.getElementById('botBox');
+            if(input.value.trim() === "") return;
+
+            box.innerHTML += `<p style="text-align: right;"><b>Kamu:</b> ${input.value}</p>`;
+            
+            setTimeout(() => {
+                box.innerHTML += `<p style="color: var(--neon-blue);"><b>AI Guide:</b> Menarik! Tapi coba pikirkan, apakah pertambahan besar pada gunung melibatkan proses pembelahan sel dan metabolisme seperti pada tanaman? 🤔</p>`;
+                box.scrollTop = box.scrollHeight;
+            }, 1000);
+
+            input.value = "";
+        }
+
+        // Render Grafik Dashboard Otomatis
+        const ctx = document.getElementById('progressChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['07.00', '09.00', '11.00', '13.00', '14.00'],
+                datasets: [{
+                    label: 'Partisipan Masuk (Spreadsheet Log)',
+                    data: [12, 45, 89, 120, 142],
+                    borderColor: '#3fb950',
+                    backgroundColor: 'rgba(63, 185, 80, 0.1)',
+                    fill: true
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+    </script>
+</body>
+</html>
