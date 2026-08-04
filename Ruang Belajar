@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="id">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260804-01-44809ed","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,0","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHO2EIdDP0,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YADy3sAhvXQ,0","Oleo Script":"YACgEQQ14jI,0","Playfair Display":"YAFdJhem5V8,1","Poppins":"YAE5fPSY9qM,0","Press Start 2P":"YAFyGr-8pmQ,0","Source Sans 3":"YAG4lO1Mj10,0","Space Grotesk":"YAHO2sjPCSM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0"}}');</script><script src="/_sdk/7949ff62d67710d5.telemetry_sdk.js" integrity="sha512-KIvXA82Di44YY/RH9/63A9MuTuavYgDFG8PfErJn7Wli4K0LAOk+coo/aPXk3+ZNL96nHh9VYD4PE+fLes+laQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis Sistem Pencernaan</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--void:#070713;--panel:#101125;--panel2:#161735;--line:#31335c;--cyan:#2dfcff;--pink:#ff3bbf;--lime:#c8ff3d;--violet:#9b6cff;--text:#f4f4ff;--muted:#a6a9cb}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text)}
+    .cyber-shell{width:100%;min-height:calc(100 * min(var(--vh,1vh),1vh));position:relative;overflow:hidden;background:radial-gradient(circle at 12% 4%,rgba(45,252,255,.15),transparent 24rem),radial-gradient(circle at 88% 86%,rgba(255,59,191,.14),transparent 26rem),#070713}
+    .cyber-shell:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(111,117,210,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(111,117,210,.2) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+    .page-content{position:relative;z-index:1}
+    .mono{font-family:"Space Mono",monospace}
+    .neon-logo{box-shadow:0 0 0 1px rgba(45,252,255,.5),0 0 22px rgba(45,252,255,.3)}
+    .timer-glow{box-shadow:0 0 0 1px rgba(255,59,191,.5),0 0 22px rgba(255,59,191,.14)}
+    .cyber-card{border:1px solid rgba(91,96,160,.55);box-shadow:0 20px 55px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.05)}
+    .question-card{position:relative;overflow:hidden}
+    .question-card:before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cyan),var(--pink),var(--lime));box-shadow:0 0 15px var(--cyan)}
+    .level-tab{border:1px solid rgba(91,96,160,.6);background:rgba(16,17,37,.7);transition:.2s ease}
+    .level-tab:hover:not(:disabled){border-color:var(--cyan)}
+    .level-tab.active{border-color:var(--cyan);background:rgba(45,252,255,.12);box-shadow:0 0 18px rgba(45,252,255,.18)}
+    .level-tab.complete{border-color:var(--lime);color:var(--lime)}
+    .level-tab:disabled{opacity:.42;cursor:not-allowed}
+    .answer-option{color:var(--text);border:1px solid rgba(91,96,160,.62);background:rgba(22,23,53,.62);transition:.18s ease}
+    .answer-option:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 0 0 1px rgba(45,252,255,.22),0 0 21px rgba(45,252,255,.14)}
+    .answer-option.selected{border-color:var(--lime);background:rgba(200,255,61,.1);box-shadow:0 0 0 1px rgba(200,255,61,.32),0 0 22px rgba(200,255,61,.12)}
+    .answer-letter{background:#25274d;color:var(--cyan);border:1px solid rgba(45,252,255,.25)}
+    .answer-option.selected .answer-letter{background:var(--lime);color:#101214;border-color:var(--lime)}
+    .question-dot{color:var(--muted);border:1px solid rgba(91,96,160,.7);background:rgba(16,17,37,.72);transition:.2s ease}
+    .question-dot.active{background:var(--cyan);color:#061013;border-color:var(--cyan);box-shadow:0 0 16px rgba(45,252,255,.75)}
+    .question-dot.done{background:rgba(200,255,61,.15);color:var(--lime);border-color:var(--lime)}
+    .badge-orb{animation:float 2.8s ease-in-out infinite;box-shadow:0 0 0 12px rgba(45,252,255,.05),0 0 48px rgba(45,252,255,.35)}
+    @keyframes float{50%{transform:translateY(-8px) scale(1.03)}}
+    .enter{animation:enter .35s ease both}
+    @keyframes enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    button:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+  </style>
+  <script src="/_sdk/0e8d3a91e1c6f495.data_sdk.js" type="text/javascript" integrity="sha512-c00oDoGjsMgluCLLEyVl3suwEkgjOGGplVFbsilUoBg4aMKNmsL3mwsc9r0dPn95qiSZyjBousQXgROkAW7p/w=="></script>
+  <script src="/_sdk/04cc6185e046f597.resizing_sdk.js" type="text/javascript" integrity="sha512-CiE/G92aQF0nxneFg1kdOvXih8sQ1Z2a2QI3+r/WvzJwQqH6+IyB3iL07OkJmpm3ABAaf07+FnqWny98f5sR6w=="></script>
+ </head>
+ <body data-template-id="__page-root">
+  <div class="cyber-shell">
+   <div class="page-content">
+    <header class="w-full px-4 pt-5 sm:px-8 sm:pt-8">
+     <div class="mx-auto flex max-w-5xl items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+       <div class="neon-logo flex h-11 w-11 items-center justify-center rounded-xl bg-[#101125] text-[#2dfcff]"><i data-lucide="scan-line" aria-hidden="true"></i>
+       </div>
+       <div>
+        <p data-template-id="brand-label" class="canva-text mono text-xs font-bold uppercase tracking-[.15em]"></p>
+        <p data-template-id="brand-subtitle" class="canva-text text-xs"></p>
+       </div>
+      </div>
+      <div data-template-id="timer-panel" class="canva-panel timer-glow mono flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold"><i data-lucide="timer" aria-hidden="true" style="width:17px"></i> <span id="timer" aria-live="polite">15:00</span>
+      </div>
+     </div>
+    </header>
+    <main class="w-full px-4 pb-12 pt-8 sm:px-8 sm:pt-11">
+     <section id="quiz-view" class="mx-auto max-w-5xl">
+      <div class="mb-6 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+       <div>
+        <p data-template-id="quiz-kicker" class="canva-text mono mb-2 text-sm font-bold uppercase tracking-[.15em]"></p>
+        <h1 data-template-id="quiz-title" class="canva-text font-bold leading-tight"></h1>
+       </div>
+       <div class="min-w-52">
+        <div class="mono mb-2 flex justify-between text-xs font-bold uppercase tracking-wider text-[#a6a9cb]"><span data-template-id="progress-label" class="canva-text"></span> <span id="progress-text">1 / 30</span>
+        </div>
+        <div class="h-2 overflow-hidden rounded-full bg-[#25274d]">
+         <div id="progress-bar" class="h-full rounded-full bg-[#ff3bbf] shadow-[0_0_13px_#ff3bbf] transition-all duration-300"></div>
+        </div>
+       </div>
+      </div>
+      <nav aria-label="Pilih level kuis" class="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5"><button id="level-0" data-template-id="level-1-tab" class="canva-button level-tab rounded-2xl p-4 text-left" type="button"> <span class="mono block text-xs font-bold opacity-70">01 · 5 SOAL</span><span class="block font-bold">Level 1</span> </button> <button id="level-1" data-template-id="level-2-tab" class="canva-button level-tab rounded-2xl p-4 text-left" type="button"> <span class="mono block text-xs font-bold opacity-70">02 · 5 SOAL</span><span class="block font-bold">Level 2</span> </button> <button id="level-2" data-template-id="level-3-tab" class="canva-button level-tab rounded-2xl p-4 text-left" type="button"> <span class="mono block text-xs font-bold opacity-70">03 · 10 SOAL</span><span class="block font-bold">Level 3</span> </button> <button id="level-3" data-template-id="level-4-tab" class="canva-button level-tab rounded-2xl p-4 text-left" type="button"> <span class="mono block text-xs font-bold opacity-70">04 · 5 SOAL</span><span class="block font-bold">Level 4</span> </button> <button id="level-4" data-template-id="level-5-tab" class="canva-button level-tab rounded-2xl p-4 text-left" type="button"> <span class="mono block text-xs font-bold opacity-70">05 · 5 SOAL</span><span class="block font-bold">Level 5</span> </button>
+      </nav>
+      <div data-template-id="question-panel" id="question-panel" class="canva-card cyber-card question-card rounded-[1.7rem] p-6 sm:p-10">
+       <div class="mb-7 flex items-center gap-3"><span id="question-number" class="mono flex h-11 w-11 items-center justify-center rounded-xl bg-[#2dfcff] text-lg font-bold text-[#07101a]">01</span>
+        <div>
+         <p id="level-name" class="mono text-xs font-bold uppercase tracking-[.14em] text-[#c8ff3d]"></p>
+         <p data-template-id="question-label" class="canva-text mono text-sm font-bold uppercase tracking-[.14em]"></p>
+        </div>
+       </div>
+       <h2 id="question-text" class="mb-8 text-2xl font-bold leading-snug sm:text-3xl"></h2>
+       <div id="answer-list" class="grid gap-3 sm:grid-cols-2" role="radiogroup" aria-label="Pilihan jawaban"></div>
+       <div class="mt-9 flex items-center justify-between border-t border-[#31335c] pt-6"><button id="prev-button" data-template-id="previous-button" type="button" class="canva-button inline-flex items-center gap-2 rounded-xl px-4 py-3 font-bold disabled:cursor-not-allowed disabled:opacity-35"> <i data-lucide="arrow-left" aria-hidden="true" style="width:18px"></i> </button> <button id="next-button" data-template-id="next-button" type="button" class="canva-button inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold shadow-[0_0_22px_rgba(255,59,191,.3)]"> <i data-lucide="arrow-right" aria-hidden="true" style="width:18px"></i> </button>
+       </div>
+      </div>
+      <aside class="mt-6" aria-label="Navigasi nomor soal">
+       <div id="question-nav" class="flex flex-wrap gap-2"></div>
+      </aside>
+     </section>
+     <section id="badge-view" class="mx-auto hidden max-w-2xl text-center">
+      <div data-template-id="achievement-panel" class="canva-card cyber-card rounded-[1.7rem] p-8 sm:p-12">
+       <div class="badge-orb mx-auto mb-7 flex h-28 w-28 items-center justify-center rounded-full bg-[#2dfcff] text-[#07101a]"><i data-lucide="award" aria-hidden="true" style="width:54px;height:54px"></i>
+       </div>
+       <p data-template-id="achievement-kicker" class="canva-text mono mb-3 text-sm font-bold uppercase tracking-[.15em]"></p>
+       <h1 id="achievement-title" class="text-3xl font-bold sm:text-4xl"></h1>
+       <p id="achievement-copy" class="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-[#c4c6df]"></p>
+       <div class="mx-auto my-8 flex max-w-sm items-center justify-between rounded-2xl border border-[#454877] bg-[#151632] px-6 py-4"><span data-template-id="level-score-label" class="canva-text mono text-xs font-bold uppercase tracking-[.13em]"></span> <strong id="level-score" class="mono text-2xl text-[#c8ff3d]">0 / 5</strong>
+       </div>
+       <p id="achievement-badge" class="mono font-bold uppercase tracking-widest text-[#c8ff3d]"></p><button id="continue-level-button" data-template-id="continue-level-button" type="button" class="canva-button mt-8 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold"> <i data-lucide="arrow-right" aria-hidden="true" style="width:18px"></i> </button>
+      </div>
+     </section>
+     <section id="result-view" class="mx-auto hidden max-w-5xl">
+      <div data-template-id="result-panel" class="canva-card cyber-card rounded-[1.7rem] p-7 text-center sm:p-12">
+       <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#c8ff3d] text-[#0c101b]"><i data-lucide="trophy" aria-hidden="true" style="width:33px"></i>
+       </div>
+       <p data-template-id="result-kicker" class="canva-text mono mb-2 text-sm font-bold uppercase tracking-[.15em]"></p>
+       <h1 data-template-id="result-title" class="canva-text font-bold"></h1>
+       <p id="result-message" class="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-[#c4c6df]"></p>
+       <div class="mx-auto my-8 grid max-w-lg grid-cols-2 overflow-hidden rounded-2xl border border-[#454877]">
+        <div class="border-r border-[#454877] bg-[#151632] p-5">
+         <p data-template-id="score-label" class="canva-text mono text-xs font-bold uppercase tracking-[.13em]"></p>
+         <p id="score-value" class="mono mt-1 text-4xl font-bold text-[#2dfcff]">0</p>
+        </div>
+        <div class="bg-[#151632] p-5">
+         <p data-template-id="correct-label" class="canva-text mono text-xs font-bold uppercase tracking-[.13em]"></p>
+         <p id="correct-value" class="mono mt-1 text-4xl font-bold text-[#c8ff3d]">0/30</p>
+        </div>
+       </div><button id="restart-button" data-template-id="restart-button" type="button" class="canva-button inline-flex items-center gap-2 rounded-xl px-5 py-3 font-bold"> <i data-lucide="rotate-ccw" aria-hidden="true" style="width:18px"></i> </button>
+      </div>
+      <section class="mt-8">
+       <h2 data-template-id="review-title" class="canva-text mb-4 font-bold"></h2>
+       <div id="review-list" class="grid gap-3"></div>
+      </section>
+     </section>
+    </main>
+   </div>
+  </div>
+  <script src="/_sdk/493c75da57365e07.editing_sdk.js" integrity="sha512-bMyHxLnOu1LL6g5gya2Ge0Bke7bi8xHXRZ+rA+qPKo9sdTsnnZEvmhGWtq7tlLKTo/OSolHMUXwm403pFYM4tg=="></script>
+  <script>
+    const levels = [
+      {
+        name:"LEVEL 1 · DASAR",
+        badge:"✦ LENCANA PEMULA ✦",
+        questions:[
+          ["Fungsi utama sistem pencernaan adalah…",["Memecah makanan menjadi molekul sederhana","Menghasilkan energi listrik","Mengatur suhu tubuh","Menguatkan otot","Mengatur hormon"],0],
+          ["Organ pencernaan paling depan adalah…",["Kerongkongan","Mulut","Lambung","Usus halus","Usus besar"],1],
+          ["Jumlah gigi manusia dewasa adalah…",["20","28","30","32","36"],3],
+          ["Gigi seri berfungsi untuk…",["Merobek makanan","Memotong makanan","Menggilas makanan","Mengunyah makanan","Menghancurkan bakteri"],1],
+          ["Gigi taring berbentuk…",["Seperti pahat","Runcing","Lebar","Bulat","Tipis"],1]
+        ]
+      },
+      {
+        name:"LEVEL 2 · TERKAIT",
+        badge:"⚡ LENCANA PENJELAJAH ⚡",
+        questions:[
+          ["Gigi geraham berfungsi untuk…",["Memotong makanan","Merobek makanan","Menggilas makanan","Menghancurkan bakteri","Mengunyah air"],2],
+          ["Jumlah gigi bayi saat berumur 6 bulan adalah…",["12","16","18","20","22"],3],
+          ["Kerongkongan memiliki panjang sekitar…",["10 cm","15 cm","20 cm","25 cm","30 cm"],3],
+          ["Gerakan peristaltik adalah…",["Gerakan meremas dinding kerongkongan","Gerakan mengunyah di mulut","Gerakan otot jantung","Gerakan paru-paru","Gerakan otot tangan"],0],
+          ["Lambung berbentuk…",["Tabung","Kantong","Bola","Segitiga","Silinder"],1]
+        ]
+      },
+      {
+        name:"LEVEL 3 · MENDALAM",
+        badge:"♛ LENCANA MASTER BIO ♛",
+        questions:[
+          ["Enzim pepsin berfungsi untuk…",["Memecah protein menjadi pepton","Mengendapkan kasein","Mengubah lemak","Mengubah amilum","Menghancurkan bakteri"],0],
+          ["Enzim renin berfungsi untuk…",["Mengubah lemak","Mengendapkan protein susu menjadi kasein","Mengubah amilum","Menghancurkan bakteri","Mengubah pepton"],1],
+          ["Asam klorida (HCl) berfungsi untuk…",["Mengasamkan makanan dan membunuh kuman","Mengubah amilum","Mengendapkan kasein","Mengubah lemak","Mengubah pepton"],0],
+          ["Usus halus terdiri dari…",["Usus 12 jari, usus kosong, usus penyerapan","Usus besar, usus buntu, rektum","Mulut, kerongkongan, lambung","Kolon, anus, hati","Empedu, pankreas, lambung"],0],
+          ["Enzim amilase berfungsi untuk…",["Mengubah protein","Mengubah lemak","Mengubah amilum menjadi glukosa","Menghancurkan bakteri","Mengendapkan kasein"],2],
+          ["Enzim tripsin berfungsi untuk…",["Mengubah pepton menjadi asam amino","Mengubah amilum","Mengubah lemak","Menghancurkan bakteri","Mengendapkan kasein"],0],
+          ["Enzim lipase berfungsi untuk…",["Mengubah amilum","Mengubah protein","Mengubah lemak menjadi asam lemak dan gliserol","Menghancurkan bakteri","Mengendapkan kasein"],2],
+          ["Usus besar memiliki panjang sekitar…",["0,5–1 m","1–1,5 m","1,5–2 m","2–3 m","3–4 m"],1],
+          ["Rektum memiliki panjang sekitar…",["10 cm","15 cm","20 cm","25 cm","30 cm"],1],
+          ["Waktu total proses pencernaan bisa mencapai…",["3–5 jam","6–10 jam","10–20 jam","10–73 jam","100 jam"],3]
+        ]
+      },
+      {
+        name:"LEVEL 4 · LAMBUNG & USUS",
+        badge:"✦ LENCANA PENGAMAT ✦",
+        questions:[
+          ["Air ludah mengandung enzim yang membantu…",["Menghancurkan bakteri","Menghaluskan makanan","Mengubah protein","Mengubah lemak","Mengubah vitamin"],1],
+          ["Bentuk makanan setelah dikunyah dan ditelan disebut…",["Pepton","Glukosa","Bolus","Kasein","Feses"],2],
+          ["Fungsi utama asam lambung adalah…",["Mengubah lemak","Menghancurkan kuman","Mengubah amilum","Mengendapkan kasein","Mengubah pepton"],1],
+          ["Proses penyerapan nutrisi terbesar terjadi di…",["Mulut","Lambung","Usus halus","Usus besar","Rektum"],2],
+          ["Usus besar berfungsi utama untuk…",["Menyerap air dan elektrolit","Menghancurkan protein","Mengubah amilum","Menghasilkan enzim","Menghancurkan vitamin"],0]
+        ]
+      },
+      {
+        name:"LEVEL 5 · PENUTUP",
+        badge:"★ LENCANA AHLI PENCERNAAN ★",
+        questions:[
+          ["Usus buntu berperan dalam…",["Pencernaan lemak","Sistem kekebalan tubuh","Mengubah protein","Menghancurkan bakteri jahat","Menghasilkan glukosa"],1],
+          ["Bakteri baik di usus besar berfungsi untuk…",["Membunuh semua kuman","Membantu memecah makanan dan vitamin","Menghancurkan protein","Mengubah amilum","Menghasilkan asam lambung"],1],
+          ["Feses terbentuk di…",["Mulut","Lambung","Usus halus","Usus besar","Rektum"],3],
+          ["Sensor di rektum berfungsi untuk…",["Menghancurkan makanan","Memberi sinyal ke otak saat feses atau gas ingin keluar","Mengubah protein","Menghasilkan enzim","Menyerap vitamin"],1],
+          ["Waktu makanan berada di lambung rata-rata…",["1 jam","2–5 jam","6 jam","10 jam","24 jam"],1]
+        ]
+      }
+    ];
+
+    const allQuestions = levels.flatMap(level => level.questions);
+    const totalQuestions = allQuestions.length;
+    const letters = ["A","B","C","D","E"];
+    const el = id => document.getElementById(id);
+    let currentLevel = 0;
+    let currentQuestion = 0;
+    let answers = Array(totalQuestions).fill(null);
+    let unlockedLevel = 0;
+    let seconds = 900;
+    let timerId;
+
+    const globalIndex = () => levels.slice(0,currentLevel).reduce((sum,level)=>sum + level.questions.length,0) + currentQuestion;
+
+    function updateTabs(){
+      levels.forEach((level,index)=>{
+        const button = el("level-" + index);
+        const start = levels.slice(0,index).reduce((sum,item)=>sum + item.questions.length,0);
+        const done = level.questions.every((_,questionIndex)=>answers[start + questionIndex] !== null);
+        button.disabled = index > unlockedLevel;
+        button.classList.toggle("active",index === currentLevel);
+        button.classList.toggle("complete",done && index < unlockedLevel);
+      });
+    }
+
+    function renderNav(){
+      const navigation = el("question-nav");
+      navigation.replaceChildren();
+
+      levels[currentLevel].questions.forEach((_,index)=>{
+        const questionIndex = globalIndex() - currentQuestion + index;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "question-dot mono h-9 w-9 rounded-full text-sm font-bold";
+        button.textContent = index + 1;
+        button.setAttribute("aria-label","Buka soal " + (questionIndex + 1));
+
+        if(index === currentQuestion) button.classList.add("active");
+        else if(answers[questionIndex] !== null) button.classList.add("done");
+
+        button.addEventListener("click",()=>{
+          currentQuestion = index;
+          renderQuestion();
+        });
+
+        navigation.appendChild(button);
+      });
+
+      updateTabs();
+    }
+
+    function renderQuestion(){
+      const question = levels[currentLevel].questions[currentQuestion];
+      const index = globalIndex();
+
+      el("question-number").textContent = String(index + 1).padStart(2,"0");
+      el("level-name").textContent = levels[currentLevel].name;
+      el("question-text").textContent = question[0];
+      el("progress-text").textContent = (index + 1) + " / " + totalQuestions;
+      el("progress-bar").style.width = ((index + 1) / totalQuestions * 100) + "%";
+
+      const list = el("answer-list");
+      list.replaceChildren();
+
+      question[1].forEach((option,optionIndex)=>{
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "answer-option w-full rounded-2xl p-4 text-left font-medium";
+        button.setAttribute("role","radio");
+        button.setAttribute("aria-checked",answers[index] === optionIndex);
+
+        if(answers[index] === optionIndex) button.classList.add("selected");
+
+        const inner = document.createElement("span");
+        inner.className = "flex items-center gap-3";
+
+        const letter = document.createElement("span");
+        letter.className = "answer-letter mono flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-sm font-bold";
+        letter.textContent = letters[optionIndex];
+
+        const text = document.createElement("span");
+        text.textContent = option;
+
+        inner.append(letter,text);
+        button.appendChild(inner);
+
+        button.addEventListener("click",()=>{
+          answers[index] = optionIndex;
+          renderQuestion();
+        });
+
+        list.appendChild(button);
+      });
+
+      el("prev-button").disabled = index === 0;
+      renderNav();
+
+      const panel = el("question-panel");
+      panel.classList.remove("enter");
+      void panel.offsetWidth;
+      panel.classList.add("enter");
+    }
+
+    function previous(){
+      if(globalIndex() === 0) return;
+
+      if(currentQuestion > 0){
+        currentQuestion--;
+      } else {
+        currentLevel--;
+        currentQuestion = levels[currentLevel].questions.length - 1;
+      }
+      renderQuestion();
+    }
+
+    function next(){
+      if(currentQuestion < levels[currentLevel].questions.length - 1){
+        currentQuestion++;
+        renderQuestion();
+        return;
+      }
+      showAchievement();
+    }
+
+    function showAchievement(){
+      const start = globalIndex() - currentQuestion;
+      const questions = levels[currentLevel].questions;
+      const correct = questions.reduce((sum,question,index)=>sum + (answers[start + index] === question[2] ? 1 : 0),0);
+      const final = currentLevel === levels.length - 1;
+
+      el("quiz-view").classList.add("hidden");
+      el("badge-view").classList.remove("hidden");
+      el("achievement-title").textContent = final ? "Level 5 Tuntas!" : "Level " + (currentLevel + 1) + " Tuntas!";
+      el("achievement-copy").textContent = final
+        ? "Kamu telah menaklukkan seluruh jalur Sistem Pencernaan. Saatnya melihat hasil belajarmu."
+        : "Lencana baru berhasil dikumpulkan. Energi belajarmu siap untuk level berikutnya.";
+      el("level-score").textContent = correct + " / " + questions.length;
+      el("achievement-badge").textContent = levels[currentLevel].badge;
+      el("continue-level-button").dataset.final = final ? "true" : "false";
+
+      el("badge-view").classList.add("enter");
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    function continueLevel(){
+      el("badge-view").classList.add("hidden");
+
+      if(el("continue-level-button").dataset.final === "true"){
+        showResult();
+        return;
+      }
+
+      unlockedLevel = Math.max(unlockedLevel,currentLevel + 1);
+      currentLevel++;
+      currentQuestion = 0;
+      el("quiz-view").classList.remove("hidden");
+      renderQuestion();
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    function tick(){
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      el("timer").textContent = String(minutes).padStart(2,"0") + ":" + String(remainingSeconds).padStart(2,"0");
+
+      if(seconds <= 0){
+        clearInterval(timerId);
+        el("badge-view").classList.add("hidden");
+        showResult();
+      } else {
+        seconds--;
+      }
+    }
+
+    function showResult(){
+      clearInterval(timerId);
+
+      const correct = answers.reduce((sum,answer,index)=>sum + (answer === allQuestions[index][2] ? 1 : 0),0);
+      const score = Math.round(correct / totalQuestions * 100);
+
+      el("score-value").textContent = score;
+      el("correct-value").textContent = correct + "/" + totalQuestions;
+      el("result-message").textContent = score >= 90
+        ? "Luar biasa. Kamu menuntaskan seluruh level dengan presisi tinggi!"
+        : score >= 70
+          ? "Pemahamanmu kuat. Tinjau ringkasan untuk memperdalam beberapa konsep."
+          : "Progres terdeteksi. Ulangi kuis untuk memperkuat konsep yang masih menantang.";
+
+      el("quiz-view").classList.add("hidden");
+      el("result-view").classList.remove("hidden");
+
+      const review = el("review-list");
+      review.replaceChildren();
+
+      allQuestions.forEach((question,index)=>{
+        const right = answers[index] === question[2];
+        const card = document.createElement("article");
+        card.className = "rounded-2xl border p-4 " + (right ? "border-[#4e8647] bg-[#11261e]" : "border-[#85345f] bg-[#291324]");
+
+        const row = document.createElement("div");
+        row.className = "flex gap-3";
+
+        const marker = document.createElement("span");
+        marker.className = "mono mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full " + (right ? "bg-[#c8ff3d] text-[#0b1014]" : "bg-[#ff3bbf] text-white");
+        marker.textContent = right ? "✓" : "!";
+
+        const content = document.createElement("div");
+        const title = document.createElement("p");
+        title.className = "font-bold text-[#f4f4ff]";
+        title.textContent = (index + 1) + ". " + question[0];
+
+        const answer = document.createElement("p");
+        answer.className = "mt-1 text-sm text-[#c4c6df]";
+        answer.textContent = "Jawaban benar: ";
+
+        const strong = document.createElement("strong");
+        strong.textContent = question[1][question[2]];
+        answer.appendChild(strong);
+
+        content.append(title,answer);
+        row.append(marker,content);
+        card.appendChild(row);
+        review.appendChild(card);
+      });
+
+      window.scrollTo({top:0,behavior:"smooth"});
+    }
+
+    function restart(){
+      currentLevel = 0;
+      currentQuestion = 0;
+      answers = Array(totalQuestions).fill(null);
+      unlockedLevel = 0;
+      seconds = 900;
+
+      el("result-view").classList.add("hidden");
+      el("badge-view").classList.add("hidden");
+      el("quiz-view").classList.remove("hidden");
+
+      clearInterval(timerId);
+      tick();
+      timerId = setInterval(tick,1000);
+      renderQuestion();
+    }
+
+    el("prev-button").addEventListener("click",previous);
+    el("next-button").addEventListener("click",next);
+    el("continue-level-button").addEventListener("click",continueLevel);
+    el("restart-button").addEventListener("click",restart);
+
+    levels.forEach((_,index)=>{
+      el("level-" + index).addEventListener("click",()=>{
+        if(index <= unlockedLevel){
+          currentLevel = index;
+          currentQuestion = 0;
+          renderQuestion();
+        }
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      lucide.createIcons();
+      tick();
+      timerId = setInterval(tick,1000);
+      renderQuestion();
+    });
+  </script>
+ </body>
+</html>
